@@ -1,7 +1,7 @@
 {
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "installCommand": "git submodule update --init --recursive && pnpm install",
+  "installCommand": "git config --global url.\"https://$GITHUB_ACCESS_TOKEN@github.com/\".insteadOf \"https://github.com/\" && git submodule update --init --recursive && pnpm install",
   "framework": "astro",
   "git": {
     "deploymentEnabled": {
