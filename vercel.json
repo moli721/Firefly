@@ -1,8 +1,13 @@
 {
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "installCommand": "git submodule update --init --recursive && pnpm install",
   "framework": "astro",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
