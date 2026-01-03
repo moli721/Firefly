@@ -6,7 +6,12 @@ import FontManager from "@components/interactive/FontManager.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
 import MusicPlayer from "@components/widget/MusicPlayer.astro";
 
-import { expressiveCodeConfig, profileConfig, siteConfig } from "@/config";
+import {
+	backgroundWallpaper,
+	expressiveCodeConfig,
+	profileConfig,
+	siteConfig,
+} from "@/config";
 import {
 	BANNER_HEIGHT,
 	BANNER_HEIGHT_EXTEND,
@@ -45,7 +50,7 @@ const configHue = siteConfig.themeColor.hue;
 
 // 获取导航栏透明模式配置
 const navbarTransparentMode =
-	siteConfig.backgroundWallpaper?.banner?.navbar?.transparentMode || "semi";
+	backgroundWallpaper.banner?.navbar?.transparentMode || "semi";
 // 判断是否应该显示顶部高光效果（只在full和semifull模式下显示）
 const shouldShowTopHighlight =
 	navbarTransparentMode === "full" || navbarTransparentMode === "semifull";
@@ -57,7 +62,7 @@ if (!banner || typeof banner !== "string" || banner.trim() === "") {
 // TODO don't use post cover as banner for now
 banner = getDefaultBackground();
 
-const enableBanner = siteConfig.backgroundWallpaper.mode === "banner";
+const enableBanner = backgroundWallpaper.mode === "banner";
 
 let pageTitle: string;
 if (title) {
@@ -89,35 +94,30 @@ const bannerOffset = `${BANNER_HEIGHT_EXTEND / 2}vh`;
 <!doctype html>
 <html lang={siteLang} class="bg-[var(--page-bg)] text-[14px] md:text-[16px]">
   <head>
-    <!-- Google Tag Manager -->
-    <script is:inline data-swup-ignore-script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-P53R3M9S");
-    </script>
-    <!-- End Google Tag Manager -->
     <!-- Microsoft Clarity -->
-    <script is:inline data-swup-ignore-script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "tx9equrgr6");
-    </script>
+    {
+      siteConfig.analytics?.clarityId && (
+        <script
+          is:inline
+          data-swup-ignore-script
+          type="text/javascript"
+          define:vars={{ clarityId: siteConfig.analytics.clarityId }}
+        >
+          (function (c, l, a, r, i, t, y) {
+            c[a] =
+              c[a] ||
+              function () {
+                (c[a].q = c[a].q || []).push(arguments);
+              };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+          })(window, document, "clarity", "script", clarityId);
+        </script>
+      )
+    }
     <!-- End Microsoft Clarity -->
 
     <title>{pageTitle}</title>
@@ -179,9 +179,9 @@ const bannerOffset = `${BANNER_HEIGHT_EXTEND / 2}vh`;
         PAGE_WIDTH,
         configHue,
         defaultMode: siteConfig.themeColor.defaultMode ?? "light",
-        defaultWallpaperMode: siteConfig.backgroundWallpaper.mode,
+        defaultWallpaperMode: backgroundWallpaper.mode,
         isWallpaperSwitchable:
-          siteConfig.backgroundWallpaper.switchable ?? true,
+          backgroundWallpaper.switchable ?? true,
         darkTheme: expressiveCodeConfig.darkTheme,
         lightTheme: expressiveCodeConfig.lightTheme,
         baseUrl: import.meta.env.BASE_URL,
@@ -443,13 +443,6 @@ const bannerOffset = `${BANNER_HEIGHT_EXTEND / 2}vh`;
         : []),
     ]}
   >
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-KRX3XGVH"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
 
     <!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
@@ -525,7 +518,7 @@ const bannerOffset = `${BANNER_HEIGHT_EXTEND / 2}vh`;
     BANNER_HEIGHT_EXTEND,
     // MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
   } from "@/constants/constants";
-  import { siteConfig, expressiveCodeConfig } from "@/config";
+  import { backgroundWallpaper, expressiveCodeConfig } from "@/config";
 
   /* Preload fonts */
   // (async function() {
@@ -632,7 +625,7 @@ function disableAnimation() {
   }
 
   function showBanner() {
-    const isBannerMode = siteConfig.backgroundWallpaper.mode === "banner";
+    const isBannerMode = backgroundWallpaper.mode === "banner";
     if (!isBannerMode) return;
 
     // 使用requestAnimationFrame优化DOM操作
