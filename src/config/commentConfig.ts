@@ -2,13 +2,13 @@ import type { CommentConfig } from "../types/config";
 
 export const commentConfig: CommentConfig = {
 	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
-	type: "none",
+	type: "twikoo",
 
 	//twikoo评论系统配置
 	twikoo: {
-		envId: "https://twikoo.vercel.app",
+		envId: "https://twikoo-green-tau-19.vercel.app",
 		lang: "zh-CN", // 设置 Twikoo 评论系统语言
-		visitorCount: true, // 文章访问量统计功能。
+		visitorCount: false, // 文章访问量统计功能。
 	},
 
 	//waline评论系统配置
