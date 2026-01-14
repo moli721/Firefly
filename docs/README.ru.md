@@ -6,18 +6,21 @@
 # Firefly
 > Свежая и красивая тема для блога на Astro
 > 
-> ![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
+> ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
 ![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-![Astro](https://img.shields.io/badge/Astro-5.16.6-orange)
+![Astro](https://img.shields.io/badge/Astro-5.16.8-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 >
 > [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
 [![Forks](https://img.shields.io/github/forks/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/network/members)
 [![Issues](https://img.shields.io/github/issues/CuteLeaf/Firefly)](https://github.com/CuteLeaf/Firefly/issues)
 > 
+> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z41NQALY)
+> 
 > ![GitHub License](https://img.shields.io/github/license/CuteLeaf/Firefly)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CuteLeaf/Firefly)
 [![Afdian Sponsor](https://img.shields.io/badge/Afdian-Поддержать%20автора-ff69b4.svg)](https://afdian.com/a/cuteleaf)
+
 </div>
 
 
@@ -41,11 +44,11 @@
 <img alt="firefly" src="./images/1.webp" />
 
 >[!TIP]
->В важных макетах Firefly инновационно добавляет двойные боковые панели, сеточный макет статей (два столбца), макет Masonry,
+>В важных макетах Firefly инновационно добавляет двойные боковые панели, сеточный макет статей (многоколонный), макет Masonry,
 >
 >Включает статистику сайта, календарный компонент, оглавление статей и другие виджеты для обогащения боковой панели,
 >
->При этом сохраняется система макетов Furwai, свободно переключаемая в конфигурационном файле.
+>При этом сохраняется система макетов fuwari, свободно переключаемая в конфигурационном файле.
 >
 >**Подробнее о настройках макета и демонстрациях см.: [Детали системы макетов Firefly](https://firefly.cuteleaf.cn/posts/firefly-layout-system/)**
 
@@ -57,27 +60,28 @@
 - [x] **Плавная анимация** - Анимация переходов между страницами Swup для шелковисто-плавного просмотра
 - [x] **Адаптивный дизайн** - Идеальная адаптация для настольных компьютеров, планшетов и мобильных устройств
 - [x] **Многоязычная поддержка** - Интернационализация i18n, поддержка упрощенного китайского, традиционного китайского, английского, японского, русского
-- [x] **Полнотекстовый поиск** - Клиентский поиск на основе Pagefind, поддержка индексации содержимого статей. Также поддержка поисковой системы MeiliSearch
+- [x] **Полнотекстовый поиск** - Клиентский поиск на основе Pagefind, поддержка индексации содержимого статей. 
 
 ### Персонализация
-- [x] **Боковая панель** - Поддержка одиночной и двойной боковой панели, свободное переключение на фронтенде
-- [x] **Макет статей** - Поддержка списка (один столбец) и сетки (два столбца/Masonry), свободное переключение на фронтенде
+- [x] **Боковая панель** - Поддержка одиночной и двойной боковой панели
+- [x] **Макет статей** - Поддержка списка (один столбец) и сетки (многоколонный/Masonry)
 - [x] **Управление шрифтами** - Поддержка пользовательских шрифтов с богатым выбором шрифтов
 - [x] **Настройка подвала** - Внедрение HTML-контента, полная настраиваемость
+- [x] **Режим света и тьмы** - Поддержка светлого/темного/системного режимов
 - [x] **Настройка навигации** - Логотип, заголовок, ссылки полностью настраиваются
-- [x] **Переключение режимов обоев** - Баннерные обои, полноэкранные обои, однотонный фон, свободное переключение на фронтенде
-- [x] **Настройка цвета темы** - Регулировка оттенка на 360°, поддержка светлого/темного/системного режимов, свободное переключение на фронтенде
+- [x] **Переключение режимов обоев** - Баннерные обои, полноэкранные обои, однотонный фон
+- [x] **Настройка цвета темы** - Регулировка оттенка на 360°
 
 ### Компоненты страницы
-- [x] **Гостевая книга** - Поддержка страницы гостевой книги с интегрированной системой комментариев
-- [x] **Панель объявлений** - Верхнее уведомление с объявлениями, поддержка закрытия и пользовательских стилей
+- [x] **Гостевая книга** - Поддержка страницы гостевой книги
+- [x] **Панель объявлений** - Поддержка уведомлений с объявлениями на боковой панели
 - [x] **Маскот** - Поддержка двух анимационных движков: Spine и Live2D
-- [x] **Статистика сайта** - Отображение количества статей, категорий, тегов, общего количества слов, времени работы, времени последнего обновления
+- [x] **Статистика сайта** - Отображение количества статей, категорий, тегов, общего количества слов и других данных
 - [x] **Календарь сайта** - Отображение календаря текущего месяца и опубликованных статей за месяц
-- [x] **Страница спонсоров** - Несколько способов оплаты, QR-коды для платежей, список спонсоров, кнопка спонсорства в статьях
-- [x] **Постер для публикации** - Поддержка создания красивых постеров для публикации статей, содержащих краткое содержание статьи, QR-код и т.д.
+- [x] **Страница спонсоров** - Переход по ссылке спонсора, отображение QR-кода оплаты, список спонсоров, кнопка спонсорства в статьях
+- [x] **Постер для публикации** - Поддержка создания красивых постеров для публикации статей
 - [x] **Эффект сакуры** - Поддержка эффекта сакуры, полноэкранная анимация сакуры
-- [x] **Дружественные ссылки** - Красивые карточки отображения дружественных ссылок
+- [x] **Дружественные ссылки** - Красивая страница отображения дружественных ссылок
 - [x] **Рекламный компонент** - Поддержка пользовательского рекламного контента на боковой панели
 - [x] **Bangumi** - Отображение отслеживания аниме и игр на основе Bangumi API
 - [x] **Система комментариев** - Интеграция систем комментариев Twikoo, Waline, Giscus, Disqus, Artalk
@@ -91,14 +95,13 @@
 - [x] **Оглавление боковой панели** - Динамическое отображение оглавления статьи, поддержка якорных переходов
 - [x] **Улучшенные блоки кода** - На основе Expressive Code, поддержка сворачивания кода, номеров строк, идентификации языка
 - [x] **Поддержка математических формул** - Движок рендеринга KaTeX, поддержка встроенных и блочных формул
-- [x] **Расширения Markdown** - [Расширенные возможности Markdown](https://github.com/saicaca/fuwari?tab=readme-ov-file#-markdown-extended-syntax)
 - [x] **Случайные обложки статей** - Поддержка получения случайных обложек через API
+- [x] **Расширения Markdown** - Поддержка дополнительных синтаксисов Markdown
 
 ### SEO
 - [x] **SEO-оптимизация** - Полные мета-теги и структурированные данные
 - [x] **RSS-лента** - Автоматическая генерация RSS-ленты
 - [x] **Карта сайта** - Автоматическая генерация XML-карты сайта с настройкой фильтрации страниц
-
 
 ## 📝 Планы...
 
@@ -122,7 +125,9 @@
    git clone https://github.com/Cuteleaf/Firefly.git
    cd Firefly
    ```
-   **Сначала создайте [Fork](https://github.com/CuteLeaf/Firefly/fork) в свой репозиторий, затем клонируйте (рекомендуется)**
+   
+   **Сначала создайте [Fork](https://github.com/CuteLeaf/Firefly/fork) в свой репозиторий, затем клонируйте (рекомендуется). Не забудьте нажать Star перед Fork!**
+
    ```bash
    git clone https://github.com/you-github-name/Firefly.git
    cd Firefly
@@ -219,26 +224,38 @@ tags: [Foo, Bar]
 category: Front-end
 draft: false
 lang: zh-CN      # Устанавливайте только если язык статьи отличается от языка сайта в `siteConfig.ts`
+pinned: false    # Закрепить статью
+comment: true    # Включить комментарии
 ---
 ```
+
+## 📖 Расширения Markdown
+
+Помимо поддержки [GitHub Flavored Markdown](https://github.github.com/gfm/) по умолчанию в Astro, есть несколько дополнительных функций Markdown:
+
+- Предупреждающие блоки (Admonitions) - Поддержка тем GitHub, Obsidian и VitePress ([Предпросмотр и использование](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- Карточки репозиториев GitHub ([Предпросмотр и использование](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- Улучшенные блоки кода на основе Expressive Code ([Предпросмотр](http://firefly.cuteleaf.cn/posts/code-examples/) / [Документация](https://expressive-code.com/))
 
 ## 🧞 Команды
 
 Все команды должны выполняться в корневом каталоге проекта:
 
-| Команда                           | Действие                            |
-|:----------------------------------|:----------------------------------|
-| `pnpm install` и `pnpm add sharp` | Установить зависимости                              |
-| `pnpm dev`                        | Запустить локальный сервер разработки на `localhost:4321`      |
-| `pnpm build`                      | Собрать сайт в `./dist/`                   |
-| `pnpm preview`                    | Локальный предварительный просмотр собранного сайта                        |
-| `pnpm new-post <filename>`        | Создать новую статью                             |
-| `pnpm astro ...`                  | Выполнить `astro add`, `astro check` и другие команды |
-| `pnpm astro --help`               | Показать справку Astro CLI                   |
+| Команда                    | Действие                                            |
+|:---------------------------|:----------------------------------------------------|
+| `pnpm install`             | Установить зависимости                              |
+| `pnpm dev`                 | Запустить локальный сервер разработки на `localhost:4321` |
+| `pnpm build`               | Собрать сайт в `./dist/`                            |
+| `pnpm preview`             | Локальный предварительный просмотр собранного сайта |
+| `pnpm check`               | Проверить код на наличие ошибок                     |
+| `pnpm format`              | Отформатировать код с помощью Biome                 |
+| `pnpm new-post <filename>` | Создать новую статью                                |
+| `pnpm astro ...`           | Выполнить `astro add`, `astro check` и другие команды |
+| `pnpm astro --help`        | Показать справку Astro CLI                          |
 
 ## 🙏 Благодарности
 
-- Особая благодарность [saicaca](https://github.com/saicaca) за разработку шаблона [Fuwari](https://github.com/saicaca/fuwari), на котором основан Firefly
+- Особенная благодарность [saicaca](https://github.com/saicaca) за разработку шаблона [fuwari](https://github.com/saicaca/fuwari), на котором основан Firefly
 - Использованы решения [Bangumi Collection Display](https://kasuha.com/posts/fuwari-enhance-ep2/) и [Email Protection/Image Title](https://kasuha.com/posts/fuwari-enhance-ep1/), которыми поделился блогер [Kasuha](https://kasuha.com)
 - За основу взяты решения [Mizuki](https://github.com/matsuzaka-yuki/Mizuki) для заголовка баннера, многоуровневой панели навигации меню, эффекта сакуры, KaTeX и Fancybox
 - Построено с использованием [Astro](https://astro.build) и [Tailwind CSS](https://tailwindcss.com)
@@ -250,7 +267,7 @@ lang: zh-CN      # Устанавливайте только если язык �
 ## 📝 Лицензия
 
 Этот проект распространяется под лицензией [MIT license](https://mit-license.org/), подробности см. в файле [LICENSE](../LICENSE).
-
+Первоначально ветвлено из [saicaca/fuwari](https://github.com/saicaca/fuwari). Благодарим автора оригинального проекта за вклад. Оригинальный проект лицензирован по [MIT License](https://mit-license.org/)
 **Уведомление об авторских правах:**
 - Copyright (c) 2024 [saicaca](https://github.com/saicaca) - [fuwari](https://github.com/saicaca/fuwari)
 - Copyright (c) 2025 [CuteLeaf](https://github.com/CuteLeaf) - [Firefly](https://github.com/CuteLeaf/Firefly)
@@ -261,11 +278,15 @@ lang: zh-CN      # Устанавливайте только если язык �
 
 Спасибо следующим участникам за их вклад в этот проект. Если у вас есть вопросы или предложения, пожалуйста, отправьте [Issue](https://github.com/CuteLeaf/Firefly/issues) или [Pull Request](https://github.com/CuteLeaf/Firefly/pulls).
 
-<a href="https://github.com/CuteLeaf/Firefly/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=CuteLeaf/Firefly" />
-</a>
+><a href="https://github.com/CuteLeaf/Firefly/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=CuteLeaf/Firefly" />
+></a>
 
-![Alt](https://repobeats.axiom.co/api/embed/6139639d8e88da4d3dc9d45fd43f4e4b2d580086.svg "Repobeats analytics image")
+Спасибо следующим участникам за их вклад в исходный проект [fuwari](https://github.com/saicaca/fuwari), который заложил основу для этого проекта.
+
+><a href="https://github.com/saicaca/fuwari/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=saicaca/fuwari" />
+></a>
 
 ## ⭐ История звезд
 

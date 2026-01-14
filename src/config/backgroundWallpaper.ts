@@ -25,6 +25,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			enable: true,
 			// 主页横幅主标题
 			title: "Chasing the Dawn",
+			// 主页横幅主标题字体大小
+			titleSize: "3.8rem",
 			// 主页横幅副标题
 			subtitle: [
 				"In Reddened Chrysalis, I Once Rest",
@@ -34,6 +36,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				"From Undreamt Night, I Thence Shine",
 				"In Finalized Morrow, I Full Bloom",
 			],
+			// 主页横幅副标题字体大小
+			subtitleSize: "1.5rem",
 			typewriter: {
 				// 是否启用打字机效果
 				// 打字机开启 → 循环显示所有副标题
@@ -70,27 +74,20 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		},
 		// 横幅导航栏配置
 		navbar: {
-			// 横幅导航栏透明模式："semi" 半透明加圆角，"full" 完全透明，"semifull" 动态透明
+			// 横幅导航栏透明模式："semi" 半透明，"full" 完全透明，"semifull" 动态透明
 			transparentMode: "semifull",
+			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
+			enableBlur: true,
+			// 毛玻璃模糊度
+			blur: 3,
 		},
-		// 波浪动画效果配置，开启可能会影响页面性能，请根据实际情况开启
+		// 波浪动画效果配置，开启可能会影响页面性能，请根据自己的喜好开启
 		waves: {
 			enable: {
 				// 桌面端是否启用波浪动画效果
 				desktop: true,
 				// 移动端是否启用波浪动画效果
 				mobile: true,
-			},
-			performance: {
-				// 性能优化说明：
-				// quality: "high" - 最佳视觉效果，但GPU占用较高，适合高性能设备
-				// quality: "medium" - 平衡性能和质量，适合中等性能设备
-				// quality: "low" - 最低GPU占用，动画更简单，适合低性能设备
-				// hardwareAcceleration: true - 启用GPU加速，提升性能但增加GPU占用
-				// hardwareAcceleration: false - 禁用GPU加速，降低GPU占用但可能影响性能
-				quality: "high",
-				// 是否启用硬件加速
-				hardwareAcceleration: true,
 			},
 		},
 	},

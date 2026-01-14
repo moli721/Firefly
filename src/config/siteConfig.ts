@@ -32,6 +32,12 @@ export const siteConfig: SiteConfig = {
 		defaultMode: "system", // 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
 	},
 
+	// 网站Card样式配置
+	card: {
+		// 是否开启卡片边框和阴影，开启后让网站更有立体感
+		border: true,
+	},
+
 	// Favicon 配置
 	favicon: [
 		{
@@ -65,11 +71,20 @@ export const siteConfig: SiteConfig = {
 	// 站点开始日期，用于统计运行天数
 	siteStartDate: "2026-01-01", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
 
+	// 提醒框（Admonitions）配置，修改后需要重启开发服务器才能生效
+	// 主题：'github' | 'obsidian' | 'vitepress'，每个主题风格和语法不同，可根据喜好选择
+	rehypeCallouts: {
+		theme: "github",
+	},
+
 	// 文章页底部的"上次编辑时间"卡片开关
 	showLastModified: true,
 
 	// 文章过期阈值（天数），超过此天数才显示"上次编辑"卡片
 	outdatedThreshold: 30,
+
+	// 是否开启分享海报生成功能
+	sharePoster: true,
 
 	// OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	generateOgImages: false,
@@ -92,17 +107,18 @@ export const siteConfig: SiteConfig = {
 
 	// 文章列表布局配置
 	postListLayout: {
-		// 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（双列布局）
-		// 如果sidebarConfig.ts中侧边栏配置启用了"both"双侧边栏，则无法使用文章列表"grid"网格（双列）布局
+		// 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（多列布局）
 		defaultMode: "list",
 		// 是否允许用户切换布局
 		allowSwitch: true,
 		// 网格布局配置，仅在 defaultMode 为 "grid" 或允许切换布局时生效
 		grid: {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
-			masonry: true,
-			// 网格模式下封面位置："top" 顶部，"right" 右侧
-			coverPosition: "top",
+			masonry: false,
+			// 网格模式列数：2 或 3
+			// 2列是默认模式，在任何侧边栏配置下均可生效
+			// 3列模式仅在单侧边栏（或无侧边栏）时生效，
+			columns: 3,
 		},
 	},
 
@@ -114,8 +130,10 @@ export const siteConfig: SiteConfig = {
 
 	// 统计分析
 	analytics: {
+		// Google Analytics ID
+		googleAnalyticsId: "G-P7GBNJKJKL",
 		// Microsoft Clarity ID
-		clarityId: "tx9equrgr6",
+		microsoftClarityId: "tx9equrgr6",
 	},
 
 	// 字体配置
