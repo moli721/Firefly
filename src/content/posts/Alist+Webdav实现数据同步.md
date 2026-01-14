@@ -2,7 +2,8 @@
 title: Alist+Webdav数据同步配置指南
 published: 2025-02-27
 description: 告别数据同步烦恼！手把手教你用 Alist+Webdav 搭建免费私有云盘，轻松实现跨平台数据同步与备份
-image: api
+image: "./FILES/Alist+Webdav实现数据同步.assets/img-20260114161008.png"
+
 tags: ['Alist', 'Webdav', '数据同步', '网盘', '免费']
 category: 工具配置
 draft: false
