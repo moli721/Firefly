@@ -2,7 +2,7 @@
 title: Nonebot2 QQ机器人Linux环境部署指南
 published: 2025-02-09
 description: 在Linux系统(Ubuntu)上搭建Nonebot2 QQ机器人的完整流程，包含环境配置和依赖安装
-image: ""
+image: api
 tags: ['Nonebot2', 'Linux', 'QQ机器人', 'Ubuntu', 'Python']
 category: 部署搭建
 draft: false

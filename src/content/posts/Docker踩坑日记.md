@@ -2,7 +2,7 @@
 title: Docker容器网络互联：ERR_CONNECTION_REFUSED排查记录
 published: 2025-02-08
 description: 遇到Docker容器之间网络连接问题？本文通过两个真实案例，深入分析Docker网络配置的常见坑点，手把手教你如何诊断和解决容器通信问题。
-image: ""
+image: api
 tags: ['Docker', '网络', '容器', '排查', '错误修复']
 category: 避坑排查
 draft: false

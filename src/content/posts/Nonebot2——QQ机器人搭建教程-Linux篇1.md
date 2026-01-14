@@ -2,7 +2,7 @@
 title: Nonebot2插件开发踩坑笔记：代理设置与文件处理
 published: 2025-02-10
 description: Nonebot2插件开发中httpx代理配置更新和文件处理的常见问题与解决方案
-image: ""
+image: api
 tags: ['Nonebot2', 'Python', 'httpx', '插件开发', '踩坑']
 category: 避坑排查
 draft: false

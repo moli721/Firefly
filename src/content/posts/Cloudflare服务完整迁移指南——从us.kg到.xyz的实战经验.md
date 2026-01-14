@@ -2,7 +2,7 @@
 title: Cloudflare域名迁移实战：从us.kg到.xyz
 published: 2025-03-21
 description: 从us.kg域名迁移到.xyz域名的Cloudflare服务完整迁移指南，包含临时邮箱和PicGo图床的实战经验
-image: ""
+image: api
 tags: ['Cloudflare', '域名迁移', '临时邮箱', 'PicGo', 'Workers']
 category: 工具配置
 draft: false

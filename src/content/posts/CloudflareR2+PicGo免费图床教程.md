@@ -2,7 +2,7 @@
 title: Cloudflare R2免费图床部署与PicGo配置
 published: 2025-02-12
 description: 详细教你如何利用Cloudflare R2搭建自己的图床服务，配合PicGo实现便捷上传，无需服务器，每月免费10GB存储空间
-image: ""
+image: api
 tags: ['Cloudflare', 'R2', 'PicGo', '图床', '免费']
 category: 部署搭建
 draft: false

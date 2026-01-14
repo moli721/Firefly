@@ -2,6 +2,7 @@
 title: 安知鱼主题Hexo博客搭建与Vercel部署指南
 published: 2024-12-30
 description: 安知鱼主题Hexo博客的完整搭建流程和Vercel部署步骤，包含ERR_REQUIRE_ESM错误解决方案
+image: api
 tags: ['Hexo', '安知鱼', 'Vercel', '博客', '部署']
 category: 部署搭建
 draft: false

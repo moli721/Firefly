@@ -2,7 +2,7 @@
 title: CherryStudio导出话题至Notion配置教程
 published: 2025-03-03
 description: 详细介绍如何将CherryStudio中的话题导出到Notion数据库的教程
-image: ""
+image: api
 tags: ['CherryStudio', 'Notion', 'API', '数据同步']
 category: 工具配置
 draft: false
