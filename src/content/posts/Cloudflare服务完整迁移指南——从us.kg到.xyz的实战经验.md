@@ -2,7 +2,7 @@
 title: Cloudflare域名迁移实战：从us.kg到.xyz
 published: 2025-03-21
 description: 从us.kg域名迁移到.xyz域名的Cloudflare服务完整迁移指南，包含临时邮箱和PicGo图床的实战经验
-image: api
+image: ""
 tags: ['Cloudflare', '域名迁移', '临时邮箱', 'PicGo', 'Workers']
 category: 工具配置
 draft: false
@@ -64,6 +64,43 @@ Cloudflare 的架构设计比较合理，使得这种迁移操作相对简单。
 3. 生成代码后，前往 Cloudflare 的 Workers 和 Pages 面板，创建新的 Pages 项目并部署前端代码。
 
 完成这些步骤后，临时邮箱服务就成功迁移到新域名了。
+
+### 3. 后续版本更新
+
+迁移完成后，随着项目的迭代，你可能需要更新临时邮箱服务。好消息是，数据库和环境变量等配置无需改动，只需更新后端和前端代码即可。
+
+![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125004716.png)
+
+如上图所示，需要更新的是 Worker 后端代码和 Pages 前端代码，下面分别介绍更新方法。
+
+#### 更新后端代码
+
+1. 前往 Cloudflare 控制台，进入 **Workers 和 Pages** 页面，找到你的后端 Worker 项目，点击进入后选择右上方的 **编辑代码**：
+
+![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125004856.png)
+
+2. 下载最新的 worker.js 代码。你可以访问 https://temp-mail-docs.awsl.uk/zh/guide/ui/worker.html 查看文档说明，或直接点击 https://github.com/dreamhunter2333/cloudflare_temp_email/releases/latest/download/worker.js 下载最新版本。
+
+3. 在编辑器中，先删除原有的 worker.js 文件，然后上传刚下载的新版本，点击部署即可完成后端更新：
+
+![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125005228.png)
+
+#### 更新前端代码
+
+由于前端代码中硬编码了后端 API 域名，更新前端时需要重新生成代码包。
+
+1. 访问 https://temp-mail-docs.awsl.uk/zh/guide/ui/pages.html ，填写你的域名信息并下载生成的前端代码（具体操作与前文迁移部分相同，此处不再赘述）：
+
+![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125005651.png)
+
+2. 回到 Cloudflare 的 **Workers 和 Pages** 页面，找到之前部署的前端 Pages 项目并点击进入，选择右上角的 **创建部署**：
+
+3. 将下载好的前端代码包直接拖入上传区域，点击 **保存并部署**，等待部署完成即可：
+    ![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125010206.png)
+
+    ![Img](./FILES/Cloudflare服务完整迁移指南——从us.kg到.xyz的实战经验.assets/img-20260125010257.png)
+
+更新完成后，可以在项目详情页看到版本号的变化。以我的项目为例，已从 v1.0.0 成功更新到 v1.2.1。
 
 ## PicGo 图床迁移
 
