@@ -31,8 +31,14 @@ yarn.lock
 *.iml
 
 # docs
-Docs-Firefly/
+Firefly-docs/
 
 cache/
 package/
 .spec-workflow/
+.obsidian/
+
+# vibe coding
+.codex*
+.claude
+.mimocode

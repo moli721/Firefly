@@ -6,7 +6,7 @@ description: "了解 Firefly 中的 Markdown 功能"
 image: ""
 tags: [演示, 示例, Markdown, Firefly]
 category: "文章示例"
-draft: false
+slug: markdown-extended
 ---
 
 ## GitHub 仓库卡片
@@ -23,14 +23,14 @@ draft: false
 
 ## 提醒框(Admonitions)配置
 
-Firefly 采用了 [rehype-callouts](https://github.com/lin-stephanie/rehype-callouts) 插件，支持了三种风格的提醒框主题：`GitHub`、`Obsidian` 和 `VitePress`。您可以在 `src/config/siteConfig.ts` 中进行配置：
+Firefly 采用了 [rehype-callouts](https://github.com/lin-stephanie/rehype-callouts) 插件，支持了四种风格的提醒框主题：`GitHub`、`Obsidian`、`VitePress` 和 `Docusaurus`。您可以在 `src/config/siteConfig.ts` 中进行配置：
 
 ```typescript
 // src/config/siteConfig.ts
 export const siteConfig: SiteConfig = {
   // ...
   rehypeCallouts: {
-    // 选项: "github" | "obsidian" | "vitepress"
+    // 选项: "github" | "obsidian" | "vitepress" | "docusaurus"
     theme: "github",
   },
   // ...
@@ -45,7 +45,7 @@ export const siteConfig: SiteConfig = {
 
 这是 GitHub 官方支持的 5 种基本类型。
 
-![GitHub](./images/github.png)
+![GitHub](./images/github.avif)
 
 **基本语法**
 
@@ -166,7 +166,7 @@ export const siteConfig: SiteConfig = {
 ```
 </details>
 
-![Obsidian](./images/obsidian.png)
+![Obsidian](./images/obsidian.avif)
 
 ---
 
@@ -198,18 +198,18 @@ export const siteConfig: SiteConfig = {
 ```
 </details>
 
-![VitePress](./images/vitepress.png)
+![VitePress](./images/vitepress.avif)
 
 ---
 
-### 4. Docusaurus 风格语法
+### 4. Docusaurus 主题风格
 
-仅支持语法，风格保持跟上面三个主题相同。
+[Docusaurus](https://docusaurus.io/docs/markdown-features/admonitions) 风格提供了一套现代化的提醒框样式，支持 5 种类型。
 
 <details>
 <summary>点击展开 Docusaurus 语法列表 </summary>
 
-支持以下类型的提醒框：`note` `tip` `important` `warning` `caution`
+支持以下类型的提醒框：`note` `tip` `info` `warning` `danger`
 
 ```markdown
 :::note
@@ -220,15 +220,15 @@ export const siteConfig: SiteConfig = {
 可选信息，帮助用户更成功。
 :::
 
-:::important
-用户成功所必需的关键信息。
+:::info
+一般信息。
 :::
 
 :::warning
 由于潜在风险需要用户立即注意的关键内容。
 :::
 
-:::caution
+:::danger
 行动的负面潜在后果。
 :::
 
@@ -236,9 +236,10 @@ export const siteConfig: SiteConfig = {
 可选信息，帮助用户更成功。
 :::
 ```
- </details>
 
+</details>
 
+![Docusaurus](./images/docusaurus.avif)
 
 ---
 
@@ -250,4 +251,31 @@ export const siteConfig: SiteConfig = {
 
 ```markdown
 内容 :spoiler[被隐藏了 **哈哈**]！
-````
+```
+
+## 图片画廊网格 (Image Grid)
+
+您可以使用 `[grid]` 和 `[/grid]` 标签将多张图片纵向并排展示。这对于展示照片画廊或对比图非常有用。系统会自动根据包裹在其中的图片数量（最多支持并排展示4张）以响应式网格进行布局。
+
+**自动补齐图片高度：** 同一排中如果有高度、大小或者比例不一的图片，会像「九宫格画廊相册」一样自动撑满。较短或不协调的图片会自动使用 object-cover 进行完美中心裁剪补充视野。图片边框水平彻底对齐无缝隙，但被裁剪后，只有点击图片通过灯箱才能查看完整图片，所以建议尽量避免使用长宽比例不一致的图片在同一排中。
+
+**图注恒定底端对齐：** 不论上面的图片长宽如何变化，在同一行的所有图像解释文字（图注）都会对标到一条完美的水平基线上了。
+
+[grid]
+![示例图片一](./images/firefly1.avif)
+![示例图片二](./images/firefly2.avif)
+![示例图片二](./images/firefly3.avif)
+[/grid]
+
+**基本语法**
+
+```markdown
+[grid]
+![示例图片一](./images/firefly1.avif)
+![示例图片二](./images/firefly2.avif)
+![示例图片二](./images/firefly3.avif)
+[/grid]
+```
+
+
+---
