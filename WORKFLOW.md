@@ -10,6 +10,33 @@
 4. 文章、个人配置、上游同步分别提交，不混在同一个提交中。
 5. 开始操作前先确认 `git status` 干净。
 
+## 分支与远端分别代表什么
+
+```text
+master            本地博客成品：主题＋个人文章＋个人配置
+origin/master     GitHub 上自己的博客成品
+upstream/master   Firefly 官方主题
+post/*            从完整博客成品复制出来的文章工作分支
+sync/*            从完整博客成品复制出来的上游合并测试分支
+backup/*          操作前的恢复点
+```
+
+下面的命令只会从自己的 GitHub 更新本地 `master`，不会把 `master` 替换成官方主题：
+
+```powershell
+git switch master
+git pull --ff-only origin master
+```
+
+官方主题只有在明确执行下面的命令时才会参与合并：
+
+```powershell
+git fetch upstream
+git merge upstream/master
+```
+
+`--ff-only` 表示只允许安全的快进更新；如果本地和 GitHub 出现分叉，命令会停止并提示处理，不会擅自覆盖本地提交。
+
 ## 一、发布新文章
 
 ### 1. 从最新 master 创建文章分支
@@ -19,6 +46,16 @@ git switch master
 git pull --ff-only origin master
 git switch -c post/20260807-article-slug
 ```
+
+`git switch -c` 会以当前 `master` 的完整状态创建分支。因此新分支已经包含全部主题、历史文章和个人配置，并不是一个空目录。
+
+随时可以切回成品分支：
+
+```powershell
+git switch master
+```
+
+切换分支前应先提交当前修改；存在可能被覆盖的未提交修改时，Git 通常会停止切换并给出提示。
 
 ### 2. 创建或编辑文章
 
@@ -140,7 +177,33 @@ git branch -d sync/upstream-YYYYMMDD-HHMMSS
 
 将命令里的时间替换成实际同步分支名称。
 
-## 三、既要写文章，又要同步上游
+## 三、修改个人配置
+
+个人配置同样保存在 `master` 中，并自动包含在以后创建的 `post/*` 和 `sync/*` 分支里。
+
+配置修改建议使用独立分支，不要和文章提交混在一起：
+
+```powershell
+git switch master
+git pull --ff-only origin master
+git switch -c config/update-profile
+
+# 修改 src/config、个人图片或 vercel.json
+pnpm check
+pnpm type-check
+
+git add -- src/config public/assets/images vercel.json
+git commit -m "config: 更新个人站点配置"
+
+git switch master
+git merge --ff-only config/update-profile
+git push origin master
+git branch -d config/update-profile
+```
+
+同步上游时，如果官方也修改了相同配置文件，Git 才会要求手动融合；已经启用的 `rerere` 会记录解决方式，后续相似冲突可以自动复用。
+
+## 四、既要写文章，又要同步上游
 
 最简单的顺序：
 
@@ -163,7 +226,7 @@ git rebase master
 
 文章只新增独立 Markdown 文件时，rebase 通常不会产生冲突。
 
-## 四、常用检查命令
+## 五、常用检查命令
 
 ```powershell
 # 查看当前分支和改动
@@ -180,7 +243,7 @@ git rev-list --left-right --count master...upstream/master
 git log --graph --oneline --decorate -10
 ```
 
-## 五、恢复方法
+## 六、恢复方法
 
 切换到同步前的备份分支：
 
@@ -190,6 +253,8 @@ git switch backup/pre-upstream-时间
 ```
 
 恢复后不要立即强制覆盖远端；先运行 `pnpm check` 和 `pnpm build` 确认版本。
+
+需要注意：`post/*` 是工作分支，`backup/*` 才是专门用于恢复的分支。文章分支合并进 `master` 后，即使删除 `post/*`，文章提交仍然保存在 `master` 中。
 
 ## 最佳实践
 
